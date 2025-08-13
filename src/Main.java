@@ -1,6 +1,7 @@
 import java.util.Scanner;
 import java.util.Random;
 import java.util.ArrayList;
+import model.Conexion;
 
 public class Main {
     public static void main(String[] args) {
@@ -47,7 +48,7 @@ public class Main {
                     convertirTemperatura(scanner);
                     break;
                 case 6:
-
+                    conexionDB();
                     break;
                 case 7:
                     System.out.println("Saliendo del programa...");
@@ -163,5 +164,10 @@ public class Main {
         double celsius = (fahrenheit - 32) * 5 / 9;
         System.out.printf("Su temperatura %.2f F es %.2f C.\n", fahrenheit, celsius);
         scanner.nextLine();
+    }
+
+    private static void conexionDB() {
+        Conexion conexion = new Conexion();
+        conexion.conectar();
     }
 }
